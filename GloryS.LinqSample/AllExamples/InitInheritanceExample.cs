@@ -11,8 +11,13 @@ namespace GloryS.LinqSample.AllExamples
     {
         public static void ShowCourses(SchoolContext context)
         {
+            //Initialization of course base models.
             var basceCourses = context.Courses.ResolveSelect<Course, CourseBaseModel>().ToList();
+
+            //Initialization of course with inherited course model.
             var courses = context.Courses.ResolveSelect<Course, CourseModel>().ToList();
+
+            //Initialization of cross entities inherited model.
             var localizedCourses = context.CourseRes.ResolveSelect<CourseRes, LocalizedCourseModel>().ToList();
         }
 

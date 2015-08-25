@@ -30,6 +30,9 @@ namespace GloryS.LinqSample
                 SimpleSelect.ShowStudents(ctx);
                 SelectNonCache.ShowStudents(ctx);
                 InitInheritanceExample.ShowCourses(ctx);
+                MemberInitExample.ShowStudents(ctx);
+                CultureResolveExample.ShowCourses(ctx);
+                FilterExpression.FilterStudents(ctx);
             }
 
             Console.ReadKey();
