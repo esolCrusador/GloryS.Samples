@@ -64,11 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DataEntities\Course.cs" />
+    <Compile Include="DAL\DataEntities\CourseRes.cs" />
     <Compile Include="DAL\DataEntities\Enrollment.cs" />
     <Compile Include="DAL\DataEntities\Student.cs" />
-    <Compile Include="Migrations\201508241121105_ContosoUniversity.cs" />
-    <Compile Include="Migrations\201508241121105_ContosoUniversity.Designer.cs">
-      <DependentUpon>201508241121105_ContosoUniversity.cs</DependentUpon>
+    <Compile Include="Migrations\201508250749491_ContosoUniversity.cs" />
+    <Compile Include="Migrations\201508250749491_ContosoUniversity.Designer.cs">
+      <DependentUpon>201508250749491_ContosoUniversity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseEnrollmentModel.cs" />
@@ -106,11 +107,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508241121105_ContosoUniversity.resx">
-      <DependentUpon>201508241121105_ContosoUniversity.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Data\ContosoUniversity.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -124,6 +120,11 @@
       <Project>{88e50888-1060-410c-ab15-202fe569486e}</Project>
       <Name>GloryS.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508250749491_ContosoUniversity.resx">
+      <DependentUpon>201508250749491_ContosoUniversity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,5 +11,7 @@ namespace GloryS.LinqSample.DAL.DataEntities
         public int Credits { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+
+        public virtual ICollection<CourseRes> CourseRes { get; set; }
     }
 }
