@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using GloryS.LinqSample.AllExamples;
 using GloryS.LinqSample.DAL;
 using GloryS.LinqSample.DAL.DataEntities;
 using GloryS.LinqSample.Models;
@@ -25,6 +26,10 @@ namespace GloryS.LinqSample
                 HowWeDid(ctx);
 
                 HowWeDo(ctx);
+
+                SimpleSelect.ShowStudents(ctx);
+                SelectNonCache.ShowStudents(ctx);
+                InitInheritanceExample.ShowCourses(ctx);
             }
 
             Console.ReadKey();

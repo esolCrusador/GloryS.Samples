@@ -63,6 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllExamples\InitInheritanceExample.cs" />
+    <Compile Include="AllExamples\SelectNonCache.cs" />
+    <Compile Include="AllExamples\SimpleSelect.cs" />
     <Compile Include="DAL\DataEntities\Course.cs" />
     <Compile Include="DAL\DataEntities\CourseRes.cs" />
     <Compile Include="DAL\DataEntities\Enrollment.cs" />
@@ -107,11 +110,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ContosoUniversity.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\ContosoUniversity.mdf" />
     <Content Include="App_Data\ContosoUniversity_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ContosoUniversity.mdf</DependentUpon>
     </Content>
   </ItemGroup>
@@ -126,6 +126,7 @@
       <DependentUpon>201508250749491_ContosoUniversity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
