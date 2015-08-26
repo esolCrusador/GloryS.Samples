@@ -127,6 +127,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>.tt</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -137,7 +142,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -170,10 +174,57 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\GloryS\GloryS.Common.Web\Content\**">
+      <Link>Content\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\GloryS\GloryS.Common.Web\Scripts\**">
+      <Link>Scripts\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\GloryS\GloryS.Common.Web\Views\**\*.cshtml">
+      <Link>Views\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\GloryS\GloryS.Common.Kendo\Content\**">
+      <Link>Content\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\GloryS\GloryS.Common.Kendo\Scripts\**">
+      <Link>Scripts\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+    <Content Include="..\GloryS\GloryS.Common.Kendo\Views\**\*.cshtml">
+      <Link>Views\%(RecursiveDir)\%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GloryS\GloryS.Common.Kendo\GloryS.Common.Kendo.csproj">
+      <Project>{23426d7b-5f3d-4b88-a0ac-f027cf90ba45}</Project>
+      <Name>GloryS.Common.Kendo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GloryS\GloryS.Common.Resources\GloryS.Common.Resources.csproj">
+      <Project>{d51cfabb-e81f-42d4-81c0-124016b046d1}</Project>
+      <Name>GloryS.Common.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GloryS\GloryS.Common.Web\GloryS.Common.Web.csproj">
+      <Project>{0c176d46-b22f-4551-a006-66b8212288ba}</Project>
+      <Name>GloryS.Common.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GloryS\GloryS.Common\GloryS.Common.csproj">
+      <Project>{88e50888-1060-410c-ab15-202fe569486e}</Project>
+      <Name>GloryS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>.gitignore</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -203,10 +254,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <Target Name="CopyLinkedContentFiles" BeforeTargets="Build">
+    <Copy SourceFiles="%(Content.Identity)" DestinationFiles="%(Content.Link)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Condition="'%(Content.Link)' != ''" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target> -->
 </Project>

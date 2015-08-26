@@ -1,0 +1,12 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".gitignore" #>
+<#@ include file="..\Glorys\GloryS.Common.Web\GitIgnore.ttinclude" #>
+<#
+	var project = GetActiveProject();
+	var linkItems = GetLinkItemInfos(project);
+	int projectPathLength = Path.GetDirectoryName(project.FileName).Length;
+foreach(var linkItem in linkItems) {#>
+<#= linkItem.ItemPath.Substring(projectPathLength+1).Replace("\\", "/") #>
+<# } #>
