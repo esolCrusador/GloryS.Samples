@@ -1,3 +1,6 @@
 [submodule "GloryS.Common.Samples/GloryS.Common"]
 	path = GloryS.Common.Samples/GloryS.Common
 	url = https://github.com/esolCrusador/GloryS.Common.git
+[submodule "GloryS.Mvc.Samples/GloryS"]
+	path = GloryS.Mvc.Samples/GloryS
+	url = https://github.com/esolCrusador/GloryS.git
