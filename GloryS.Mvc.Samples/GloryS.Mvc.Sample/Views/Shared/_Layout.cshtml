@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using GloryS.Mvc.Sample
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -6,7 +7,7 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/BaseStyles.css")
-        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render(BundleConfig.DefaultScripts)
     </head>
     <body>
         <header>
