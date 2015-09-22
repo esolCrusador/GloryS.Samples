@@ -11,6 +11,11 @@ namespace GloryS.LinqSample
         public static Expression<Func<TEnum, string>> GetEnumToStringExpression<TEnum>()
         {
             Type enumType = typeof (TEnum);
+            Type nullableEnumType = Nullable.GetUnderlyingType(enumType);
+            if (nullableEnumType != null)
+            {
+                enumType = nullableEnumType;
+            }
 
             ParameterExpression enumParam = Expression.Parameter(typeof(TEnum), enumType.Name.ToLower());
             Expression bodyExpression = Expression.Constant(null, typeof(String));
@@ -35,7 +40,7 @@ namespace GloryS.LinqSample
             foreach (var member in allMembers)
             {
                 //TODO Replace with Readable.
-                allValues[i++] = new EnumInfo(member, Convert.ToInt32(member), member.Readable());
+                allValues[i++] = new EnumInfo(member, Convert.ToInt32(member), member.ToString());
             }
 
             allValues[i] = new EnumInfo((Enum)Enum.ToObject(enumType, 0), 0, null);
