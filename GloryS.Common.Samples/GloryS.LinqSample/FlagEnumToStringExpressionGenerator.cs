@@ -50,7 +50,7 @@ namespace GloryS.LinqSample
                 EnumInfo member = enumMembers[i];
                 if (i + 1 == enumMembers.Length)
                 {
-                    yield return new EnumInfo(member.Member, member.MemberValue, null);
+                    yield return new EnumInfo(member.Member, member.MemberValue, member.MemberName);
                 }
 
                 IEnumerable<EnumInfo> subCombinations = Combinations(i + 1, enumType, enumMembers);
