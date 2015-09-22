@@ -12,18 +12,18 @@ namespace GloryS.LinqSample
         {
             Type enumType = typeof (TEnum);
 
-            ParameterExpression gradeParam = Expression.Parameter(typeof(TEnum), enumType.Name.ToLower());
-            Expression gradeBodyExpression = Expression.Constant(null, typeof(String));
+            ParameterExpression enumParam = Expression.Parameter(typeof(TEnum), enumType.Name.ToLower());
+            Expression bodyExpression = Expression.Constant(null, typeof(String));
 
-            foreach (var grade in Combinations(enumType))
+            foreach (var enumKvp in Combinations(enumType))
             {
-                ConstantExpression gradeValue = Expression.Constant(grade.Key, typeof(TEnum));
-                ConstantExpression gradeResultString = Expression.Constant(grade.Value, typeof(String));
+                ConstantExpression enumValue = Expression.Constant(enumKvp.Key, typeof(TEnum));
+                ConstantExpression enumString = Expression.Constant(enumKvp.Value, typeof(String));
 
-                gradeBodyExpression = Expression.Condition(Expression.Equal(gradeParam, gradeValue), gradeResultString, gradeBodyExpression);
+                bodyExpression = Expression.Condition(Expression.Equal(enumParam, enumValue), enumString, bodyExpression);
             }
 
-            return Expression.Lambda<Func<TEnum, string>>(gradeBodyExpression, gradeParam);
+            return Expression.Lambda<Func<TEnum, string>>(bodyExpression, enumParam);
         }
 
         private static IEnumerable<KeyValuePair<Enum, string>> Combinations(Type enumType)
@@ -43,17 +43,17 @@ namespace GloryS.LinqSample
             return Combinations(0, enumType, allValues).Select(e => new KeyValuePair<Enum, string>(e.Member, e.MemberName));
         }
 
-        private static IEnumerable<EnumInfo> Combinations(int startIndex, Type enumType, EnumInfo[] grades)
+        private static IEnumerable<EnumInfo> Combinations(int startIndex, Type enumType, EnumInfo[] enumMembers)
         {
-            for (int i = startIndex; i < grades.Length; i++)
+            for (int i = startIndex; i < enumMembers.Length; i++)
             {
-                EnumInfo member = grades[i];
-                if (i + 1 == grades.Length)
+                EnumInfo member = enumMembers[i];
+                if (i + 1 == enumMembers.Length)
                 {
                     yield return new EnumInfo(member.Member, member.MemberValue, null);
                 }
 
-                IEnumerable<EnumInfo> subCombinations = Combinations(i + 1, enumType, grades);
+                IEnumerable<EnumInfo> subCombinations = Combinations(i + 1, enumType, enumMembers);
 
                 foreach (var subCombination in subCombinations)
                 {
