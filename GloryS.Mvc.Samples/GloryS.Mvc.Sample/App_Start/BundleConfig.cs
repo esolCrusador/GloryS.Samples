@@ -10,6 +10,7 @@ namespace GloryS.Mvc.Sample
     public class BundleConfig
     {
         public const string DefaultScripts = "~/Scripts/Default";
+        public const string BaseStyles = "~/Content/BaseStyles.css";
 
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
@@ -25,7 +26,7 @@ namespace GloryS.Mvc.Sample
                 .ToArray();
             bundles.Add(new ScriptBundle(DefaultScripts).Include(defaultScripts));
 
-            bundles.Add(new ScriptBundle("~/Content/BaseStyles.css")
+            bundles.Add(new ScriptBundle(BaseStyles)
                 .Include("~/Content/Site.css"));
         }
     }

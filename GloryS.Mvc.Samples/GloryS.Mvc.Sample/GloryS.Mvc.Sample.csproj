@@ -132,6 +132,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\Chinook.mdf" />
+    <Content Include="App_Data\Chinook_log.ldf">
+      <DependentUpon>Chinook.mdf</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -193,9 +197,7 @@
       <Link>Views\%(RecursiveDir)\%(Filename)%(Extension)</Link>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
